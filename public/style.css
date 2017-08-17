@@ -1,0 +1,61 @@
+.mainTitle{
+  font-size: 24pt;
+  color: teal;
+}
+body{
+  width: 100vw;
+  background: #FFE4B2;
+}
+.top{
+  width: 100vw;
+  height: 4vw;
+}
+.top input{
+  width: 20vw;
+  height: 2vw;
+  font-size: 12pt;
+}
+
+.clear{
+  width: 2vw;
+  height: 2vw;
+}
+.todo{
+  display: flex;
+
+  /*flex-wrap: wrap;*/
+  width: 100vw;
+  height: 15vw;
+  padding-bottom: 5vw;
+}
+.words{
+  width: 10vw;
+}
+.todo button{
+  margin-right: 1vw;
+  margin-bottom: 1vw;
+  color: red;
+  width: 20vw;
+  height: 3vw;
+  font-size: 12pt;
+}
+
+.complete{
+  border-top: 2px solid black;
+  width: 100vw;
+  height: 30vw;
+  padding-top: 1vw;
+}
+.complete h1{
+  color: teal;
+
+}
+.done{
+  font-size: 20pt;
+  color: darkgrey;
+  font-weight: bold;
+  text-decoration: line-through;
+  text-decoration-color: blue;
+  text-decoration-style: solid;
+
+}

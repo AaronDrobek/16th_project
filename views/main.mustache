@@ -6,39 +6,10 @@
   <link rel="stylesheet" href="/public/style.css">
 </head>
 <body>
-  <h1 class= "mainTitle">Things To Do Today:</h1>
-  <div class="top">
-    <form class="" action="/" method="post">
-      <input type="text" name="todo_input" placeholder="Type To Do's Here">
-      <button type="submit" name="button">Add To List</button>
-    </form>
+  <div class="container">
+
+{{{yield}}}
+
   </div>
-
-
-  <div class="todo">
-      {{#task}}
-      <a href="/destroy/{{id}}">Delete
-        <form class="" action="/edit/{{id}}" method="post">
-        <button class ="clear"   type="submit" value="{{todo_input}}" name="click_done">{{todo_input}}</button>
-    </a>
-    {{/task}}
-  </form>
-</div>
-
-
-
-
-    <div class="complete">
-      <form class="" action="index.html" method="post">
-        <h1>Completed Tasks: Good Job!</h1>
-        <h3 class="done">
-          {{#task}}
-          <br>{{todo_input}}
-          <br>
-          {{/task}}
-        </h3>
-      </form>
-
-    </div>
 </body>
 </html>

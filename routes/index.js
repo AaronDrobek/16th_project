@@ -5,21 +5,16 @@ const models = require("../models/index");
 
 
 
-router.use("/public", express.static("public"));
 
-// router.get("/", function(req, res){
-// res.render('main', {task: task, complete: complete});
-// });
 router.get("/", function(req,res){
   models.Task.findAll()
   .then(function(data) {
     console.log(data,"data here");
-    res.render("main", {task: data});
+    res.render("task", {task: data});
   })
 });
 
-
-router.post("/", function(req,res){
+router.post("/task", function(req,res){
   models.Task.create({
     todo_input: req.body.todo_input
   })
@@ -27,6 +22,7 @@ router.post("/", function(req,res){
     res.redirect("/");
   })
 });
+
 router.get("/destroy/:id", function(req,res){
   models.Task.destroy({
     where: {
@@ -37,6 +33,20 @@ router.get("/destroy/:id", function(req,res){
     res.redirect("/");
   })
 });
+
+router.get("/complete/:id", function (req,res){
+  models.Task.update({
+    isComplete: true,
+  },
+  {
+    where:{
+      id: req.params.id
+    }
+  })
+  .then(function(data){
+    res.redirect("/");
+  })
+})
 
 router.post("/edit/:id", function(req,res){
   models.Task.update({
@@ -51,33 +61,24 @@ router.post("/edit/:id", function(req,res){
   })
 });
 
+router.get("/edit/:id", function(req,res){
+  models.Task.findById(req.params.id)
+    .then(function(data){
+      res.render("edit", {task:data})
+
+    })
+})
+
+
 //
 // router.post("/complete/:id", function(req, res){
 //   models.Task.findOne()
 //   console.log(task);
-//   res.render("/below", {task: data});
+//   res.render("/", {complete: data});
 // })
-//
+
 // router.post("/complete", function(req, res){
 //   complete.push(task.splice(task.indexOf(req.body.click_done),1));
 //   res.redirect("/");
 // })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 module.exports=router;

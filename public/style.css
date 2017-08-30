@@ -16,18 +16,30 @@ body{
   font-size: 12pt;
 }
 
+.container{
+  width: 100vw;
+  height: 30vw;
+
+}
 .clear{
+  padding-right: 1vw;
+  margin-left: 1vw;
   width: 2vw;
   height: 2vw;
 }
+.todo h4{
+  margin-right: 1vw;
+}
 .todo{
   display: flex;
-
-  /*flex-wrap: wrap;*/
+  flex-wrap: wrap;
   width: 100vw;
   height: 15vw;
   padding-bottom: 5vw;
 }
+
+
+
 .words{
   width: 10vw;
 }
